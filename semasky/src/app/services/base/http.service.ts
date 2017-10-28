@@ -23,7 +23,7 @@ export abstract class HttpService {
   }
 
   request(type: RequestType, url: string, params: {[key: string]: any}, success: Function, error: Function, ensure?: Function): Subscription {
-    url = this._prefix + url + '.json';
+    url = this._prefix + url;
 
     // add agent param of Web
     if (params) {

@@ -19,7 +19,7 @@ class App < Sinatra::Base
   options '/*' do
     cross_origin
   end
-  post '/api/upload.json', provides: :json do
+  post '/api/upload', provides: :json do
     cross_origin
     params = JSON.parse(request.body.read)["data"]
     fn = params["filename"]
@@ -31,18 +31,18 @@ class App < Sinatra::Base
     return [200, {}.to_json]
   end
 
-  post '/api/search.json', provides: :json do
+  post '/api/search', provides: :json do
     cross_origin
     params = JSON.parse(request.body.read)["data"]
     {files: UserFileModel.find_by_keywords(params["keywords"]).map(&:attributes)}.to_json
   end
 
-  post '/api/login.json' do
+  post '/api/login' do
     cross_origin
     [200, {uid: 'hoge'}.to_json]
   end
 
-  post '/api/register.json' do
+  post '/api/register' do
     cross_origin
     [200, {uid: 'hoge'}.to_json]
   end
