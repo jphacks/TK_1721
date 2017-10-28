@@ -7,9 +7,26 @@ import { Component } from '@angular/core';
 export class UploadComponent {
   ngAfterViewInit() {
     let droppable = document.getElementById('droppable');
+    let counter = 0;
     droppable.addEventListener('dragover', e => {
       e.stopPropagation();
       e.preventDefault();
+    });
+    droppable.addEventListener('dragenter', e => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      counter++;
+      droppable.classList.add('ondrop');
+    });
+    droppable.addEventListener('dragleave', e => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      counter--;
+      if (counter === 0) {
+        droppable.classList.remove('ondrop');
+      }
     });
     droppable.addEventListener('drop', e => {
       e.stopPropagation();
@@ -24,7 +41,7 @@ export class UploadComponent {
         }
         reader.readAsText(files[i]);
       }
-      console.log(data);
+      droppable.classList.remove('ondrop');
     });
   }
 }
