@@ -1,10 +1,7 @@
 <section class="search-result-section">
   <div class="contents">
-    <div *ngFor="let file of files" class="file">
-      <img class="thumbnail" [src]="file.formatImage">
-      <span class="filename">
-        {{file.name}}
-      </span>
-    </div>
+    <span *ngFor="let file of files">
+      <result-box [file]="file"></result-box>
+    </span>
   </div>
 </section>
