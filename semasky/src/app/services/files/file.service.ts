@@ -20,7 +20,16 @@ export class FileService {
       data: data
     };
 
-    console.log(data);
+    return self._api.request(RequestType.POST, url, params, success, error);
+  }
+
+  search(data: any, success: Function, error: Function): Subscription {
+    let self = this;
+    let url: string = `search`;
+    let params = {
+      data: data
+    };
+
     return self._api.request(RequestType.POST, url, params, success, error);
   }
 }

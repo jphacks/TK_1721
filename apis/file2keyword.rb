@@ -56,5 +56,3 @@ def file2keyword(title, path)
     res = JSON.load(html)["keywords"].map{|x| x.keys}.flatten(1) rescue []
   end.uniq.flatten(1)
 end
-
-p file2keyword(gets.chomp, gets.chomp)

@@ -1,2 +1,33 @@
 .search-result-section {
+  .contents {
+    margin: @margin-xxlarge;
+
+    .file {
+      margin: @margin-small;
+      padding: @padding-normal;
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      text-align: center;
+
+      .thumbnail {
+        display: block;
+        margin: 0 auto;
+        height: 60px;
+      }
+
+      .filename {
+        color: @gray-darken-2;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:hover {
+        background: @gray-lighten-3;
+        cursor: pointer;
+      }
+    }
+  }
 }
