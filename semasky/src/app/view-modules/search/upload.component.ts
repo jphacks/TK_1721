@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
+import { FileService } from '../../services/files';
 
 @Component({
   selector: 'upload',
   templateUrl: './upload.component.html'
 })
 export class UploadComponent {
+  constructor(
+    private _file: FileService
+  ) {
+  }
+
   ngAfterViewInit() {
+    let self = this;
+
     let droppable = document.getElementById('droppable');
     let counter = 0;
     droppable.addEventListener('dragover', e => {
@@ -37,7 +45,11 @@ export class UploadComponent {
       for (let i = 0; i < files.length; i++) {
         let reader: any = new FileReader();
         reader.onload = e => {
-          // submit
+          self._file.submit({
+            uid: "hoge",
+            filename: files[i].name,
+            file: e.target.result
+          }, (e) => {console.log(e)}, (e) => {console.error(e)});
         }
         reader.readAsText(files[i]);
       }
