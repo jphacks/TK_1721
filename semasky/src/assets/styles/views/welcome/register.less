@@ -1,0 +1,68 @@
+.register-section {
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+
+  .select {
+    text-align: center;
+    color: @white;
+    .register {
+      float: left;
+      width: 140px;
+      height: 48px;
+      line-height: 48px;
+      background: @purple-lighten-1;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .25);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .login {
+      float: right;
+      width: 140px;
+      height: 48px;
+      line-height: 48px;
+      background: @gray;
+
+      &:hover {
+        cursor: pointer;
+        background: @gray-darken-1;
+      }
+    }
+    .clearfix();
+  }
+
+  .register-form {
+    .input {
+      padding: @padding-xlarge;
+      label {
+        margin: @margin-normal 0 0;
+        font-size: @font-size-small;
+        color: @gray-darken-1;
+        display: block;
+      }
+
+      input {
+        .base-input();
+        margin: 0 0 @margin-xxlarge;
+      }
+    }
+
+    .btn {
+      color: @white;
+      background: @purple-lighten-1;
+      border: none;
+      width: 100%;
+      display: block;
+      margin: @margin-xlarge auto 0;
+      padding: @padding-normal @padding-xxlarge;
+      border-radius: 3px;
+
+      &:hover {
+        background: @purple;
+      }
+    }
+    .clearfix();
+  }
+}

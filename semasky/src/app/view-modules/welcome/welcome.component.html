@@ -1,1 +1,5 @@
 <semasky-header type="welcome"></semasky-header>
+<div class="welcome-forms">
+  <login *ngIf="!register"></login>
+  <register *ngIf="register"></register>
+</div>
