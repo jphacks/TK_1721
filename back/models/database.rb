@@ -15,3 +15,8 @@ class Filetag < ActiveRecord::Base
   belongs_to :user_file
   belongs_to :tag
 end
+
+class User < ActiveRecord::Base
+  has_many :tags
+  has_many :user_files
+end
