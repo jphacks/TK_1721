@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Ascii85 (1.0.2)
     activemodel (5.1.4)
       activesupport (= 5.1.4)
     activerecord (5.1.4)
@@ -13,7 +12,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    afm (0.2.2)
     arel (8.0.0)
     backports (3.10.3)
     concurrent-ruby (1.0.5)
@@ -24,7 +22,6 @@ GEM
     eventmachine (1.2.5)
     foreman (0.84.0)
       thor (~> 0.19.1)
-    hashery (2.1.2)
     i18n (0.9.0)
       concurrent-ruby (~> 1.0)
     mini_portile2 (2.2.0)
@@ -33,18 +30,11 @@ GEM
     mustermann (1.0.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
-    pdf-reader (2.0.0)
-      Ascii85 (~> 1.0.0)
-      afm (~> 0.2.1)
-      hashery (~> 2.0)
-      ruby-rc4
-      ttfunk
     pg (0.21.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
     rake (12.2.1)
-    ruby-rc4 (0.1.5)
     rubyzip (1.1.7)
     sinatra (2.0.0)
       mustermann (~> 1.0)
@@ -70,7 +60,6 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    ttfunk (1.5.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
 
@@ -81,7 +70,6 @@ DEPENDENCIES
   activerecord
   docx
   foreman
-  pdf-reader
   pg
   rake
   sinatra
@@ -92,4 +80,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
