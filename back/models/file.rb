@@ -1,12 +1,12 @@
 require_relative 'database'
 require_relative 'helper'
 
-class FileModel
+class UserFileModel
   def self.save(name, path, author = 'hoge')
     hash = "#{hash(fn + rand())}.#{File.extname(fn)}"
     save_path = "./public/images/#{hash}"
     IO.binwrite(save_path, dat)
-    file = File.create!(name: name, username: author, hash: hash)
+    file = UserFile.create!(name: name, username: author, hash: hash)
     return file
   end
 

@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171028043619) do
 
-  create_table "files", force: :cascade do |t|
-    t.string   "name"
-    t.string   "username"
-    t.string   "hash"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "filetags", force: :cascade do |t|
     t.integer "file_id"
     t.integer "tag_id"
@@ -27,6 +19,14 @@ ActiveRecord::Schema.define(version: 20171028043619) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "user_file", force: :cascade do |t|
+    t.string   "name"
+    t.string   "username"
+    t.string   "hash"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

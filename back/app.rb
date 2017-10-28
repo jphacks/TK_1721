@@ -13,7 +13,7 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  post '/api/upload.json' do
+  post '/api/upload' do
     if params[:file]
       fn = params[:file][:filename]
       dat= params[:file][:tempfile].read
@@ -26,7 +26,7 @@ class App < Sinatra::Base
     end
   end
 
-  get '/api/search' do
+  post '/api/search' do
     @ranking = Ranking.new.ranking
   end
 
