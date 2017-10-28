@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './search-box.component.html'
 })
 export class SearchBoxComponent {
-  
+
 }
