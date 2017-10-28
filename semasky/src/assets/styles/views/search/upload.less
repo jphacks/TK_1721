@@ -1,16 +1,19 @@
 .upload-section {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-
-  margin: @margin-large;
-  border-radius: 5px;
-
-
-  max-width: 200px;
-  background: rgba(0, 0, 0, 0.5);
+  #droppable {
+    height: calc(~'100vh - 320px');
+    width: 100%;
+  }
 
   .help {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    max-width: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: @margin-large;
+    border-radius: 5px;
+
+    text-align: center;
     padding: @padding-normal @padding-large;
     color: @white;
   }
