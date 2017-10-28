@@ -10,7 +10,7 @@ export namespace config.http {
   if (environment.production) {
 
   } else {
-    api = 'http://localhost:3000/api/';
+    api = 'http://localhost:9292/api/';
   }
   export const API: string = api;
 }
