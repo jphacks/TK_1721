@@ -4,7 +4,6 @@ export var save: Function = (uri, name) => {
   let link = document.createElement('a');
   link.download = name;
   link.href = `${config.http.HOST}/${uri}`;
-  console.log(link);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
