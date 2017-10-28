@@ -49,11 +49,18 @@ export class UploadComponent {
             uid: "hoge",
             filename: files[i].name,
             file: e.target.result
-          }, (e) => {console.log(e)}, (e) => {console.error(e)});
+          }, self.success.bind(self), self.success.bind(self));
         }
-        reader.readAsText(files[i]);
+        reader.readAsBinaryString(files[i]);
       }
       droppable.classList.remove('ondrop');
     });
+  }
+
+  success() {
+  }
+
+  error(e) {
+    console.error(e);
   }
 }
