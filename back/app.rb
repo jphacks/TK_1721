@@ -1,21 +1,26 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'slim'
-require 'slim/include'
-require 'sass'
+require 'sinatra/cross_origin'
 
 require 'digest/sha2'
 require_relative 'models/init'
 
 class App < Sinatra::Base
-  enable :sessions
+  configure do
+    register Sinatra::CrossOrigin
+    enable :sessions
+    enable :cross_origin
+  end
   configure :development do
     register Sinatra::Reloader
   end
 
-  post '/api/upload', provides: :json do
-    params = JSON.parse request.body.read
-    p params
+  options '/*' do
+    cross_origin
+  end
+  post '/api/upload.json', provides: :json do
+    cross_origin
+    params = JSON.parse(request.body.read)["data"]
     fn = params["filename"]
     dat= params["file"]
     file_id  = UserFileModel.save(fn, dat).id
@@ -25,16 +30,19 @@ class App < Sinatra::Base
     return [200, {}.to_json]
   end
 
-  post '/api/search', provides: :json do
-    params = JSON.parse request.body.read
+  post '/api/search.json', provides: :json do
+    cross_origin
+    params = JSON.parse(request.body.read)["data"]
     {files: UserFileModel.find_by_keywords(params["keywords"]).map(&:attributes)}.to_json
   end
 
-  post '/api/login' do
+  post '/api/login.json' do
+    cross_origin
     [200, {uid: 'hoge'}.to_json]
   end
 
-  post '/api/register' do
+  post '/api/register.json' do
+    cross_origin
     [200, {uid: 'hoge'}.to_json]
   end
 end
