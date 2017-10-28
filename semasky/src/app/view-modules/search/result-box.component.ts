@@ -12,6 +12,9 @@ export class ResultBoxComponent {
   download(event) {
     event.preventDefault();
     let self = this;
-    save(self.file.uri, self.file.name);
+    // save(self.file.uri, self.file.name);
+
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById(self.file.uri).style.display = "block";
   }
 }
