@@ -6,18 +6,31 @@ require 'net/http'
 require 'net/https'
 require 'json'
 require 'pdf-reader'
+require 'docx'
 
 # titleにタイトル、bodyに本文を入れて
 title = gets.chomp
 path = gets.chomp
-
-io = open(File.expand_path(path))
-reader = PDF::Reader.new(io)
-
 body = ""
-reader.pages.each do |page|
-  body += page.text
+
+ext = File.extname(path)
+if ext==".pdf" then
+  io = open(File.expand_path(path))
+  reader = PDF::Reader.new(io)
+  reader.pages.each do |page|
+    body += page.text
+  end
+elsif ext == ".docx" then
+  doc = Docx::Document.open(File.expand_path(path))
+  doc.paragraphs.each do |page|
+    body += page.text
+  end
+elsif ext == ".txt" then
+  File.open(File.expand_path(path)) do |f|
+    body += f.read
+  end
 end
+
 body = body.gsub(/(?:\n\r?|\r\n?)/, ' ').split.join(" ")[0..5000]
 
 URL = "https://labs.goo.ne.jp/api/keyword"
