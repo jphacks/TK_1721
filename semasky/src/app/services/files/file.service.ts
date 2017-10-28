@@ -23,11 +23,11 @@ export class FileService {
     return self._api.request(RequestType.POST, url, params, success, error);
   }
 
-  search(keyword: string, success: Function, error: Function): Subscription {
+  search(data: any, success: Function, error: Function): Subscription {
     let self = this;
     let url: string = `search`;
     let params = {
-      data: keyword
+      data: data
     };
 
     return self._api.request(RequestType.POST, url, params, success, error);
