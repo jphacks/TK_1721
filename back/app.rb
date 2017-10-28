@@ -1,10 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'slim'
-require 'slim/include'
-require 'sass'
 
-require 'digest/sha2'
 require_relative 'models/init'
 
 class App < Sinatra::Base
