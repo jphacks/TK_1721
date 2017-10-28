@@ -14,11 +14,11 @@ export class RegisterService {
   ) {
   }
 
-  register(user: User, success: Function, error: Function): Subscription {
+  register(user: any, success: Function, error: Function): Subscription {
     let self = this;
-    let url: string = `api/login`;
+    let url: string = `api/register`;
     let params = {
-      user: user
+      data: user
     };
     let block = (json: JSON) => {
       let user: User = new User(json);
