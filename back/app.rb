@@ -28,6 +28,7 @@ class App < Sinatra::Base
     uf, fpath = UserFileModel.save(fn, dat)
     file_id = uf.id
     keywords = document2keyword(fn, fpath)
+    keywords << 'hoge'
     p keywords
     KeywordModel.save(file_id, keywords)
 
