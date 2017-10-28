@@ -6,4 +6,14 @@
 </div>
 
 <div class="file-detail" [id]="file.uri">
+  <div class="contents">
+    <div class="abstract">
+      <div class="image-container">
+        <img [src]="file.formatImage">
+      </div>
+      <span class="name">
+        {{file.name}}
+      </span>
+    </div>
+  </div>
 </div>
