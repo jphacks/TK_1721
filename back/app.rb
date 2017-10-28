@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/cross_origin'
 
+require 'base64'
+
 require 'digest/sha2'
 require_relative 'models/init'
 
@@ -22,7 +24,7 @@ class App < Sinatra::Base
     cross_origin
     params = JSON.parse(request.body.read)["data"]
     fn = params["filename"]
-    dat= params["file"]
+    dat= Base64.decode64(params["file"])
     file_id  = UserFileModel.save(fn, dat).id
     keywords = ['hoge', 'fuga']
     KeywordModel.save(file_id, keywords) # TODO keywords

@@ -48,7 +48,7 @@ export class UploadComponent {
           self._file.submit({
             uid: "hoge",
             filename: files[i].name,
-            file: e.target.result
+            file: btoa(e.target.result)
           }, self.success.bind(self), self.success.bind(self));
         }
         reader.readAsBinaryString(files[i]);
