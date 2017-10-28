@@ -15,7 +15,7 @@ export class FileService {
 
   submit(data: any, success: Function, error: Function): Subscription {
     let self = this;
-    let url: string = `upload`;
+    let url: string = `api/upload`;
     let params = {
       data: data
     };
@@ -25,11 +25,18 @@ export class FileService {
 
   search(data: any, success: Function, error: Function): Subscription {
     let self = this;
-    let url: string = `search`;
+    let url: string = `api/search`;
     let params = {
       data: data
     };
 
     return self._api.request(RequestType.POST, url, params, success, error);
+  }
+
+  save(uri: string, success: Function, error: Function) {
+    let self = this;
+    let url: string = uri;
+
+    return self._api.request(RequestType.GET, url, null, success, error);
   }
 }

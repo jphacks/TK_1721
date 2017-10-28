@@ -6,11 +6,11 @@ export namespace config.env {
 }
 
 export namespace config.http {
-  let api: string;
+  let host: string;
   if (environment.production) {
 
   } else {
-    api = 'http://localhost:9292/api/';
+    host = 'http://localhost:9292/';
   }
-  export const API: string = api;
+  export const HOST: string = host;
 }

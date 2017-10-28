@@ -1,4 +1,5 @@
 import { Entity } from './entity';
+import { config } from '../config';
 
 export class File extends Entity {
   public name: string;
@@ -37,6 +38,10 @@ export class File extends Entity {
       self.format = 'other';
     }
 
-    self.formatImage = `assets/images/${self.format}.png`;
+    if (['jpg', 'png', 'gif'].indexOf(self.format) !== -1) {
+      self.formatImage = `${config.http.HOST}/${self.uri}`;
+    } else {
+      self.formatImage = `assets/images/${self.format}.png`;
+    }
   }
 }
