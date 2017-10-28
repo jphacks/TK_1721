@@ -3,8 +3,14 @@
   width: 100%;
   background: @teal-lighten-2;
 
-  .semasky {
+  .logo {
     padding: 0 0 0 @padding-xxlarge;
+    height: @header-height;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .semasky {
     color: @white;
     font-size: @font-size-xxlarge;
     font-weight: 600;
@@ -21,10 +27,11 @@
     line-height: @header-height;
   }
 
-  .logout {
+  .logout, .welcome {
     float: right;
     padding: 0 @padding-xxlarge * 3 0 0;
     font-size: @font-size-normal;
+    color: @white;
     font-weight: 500;
     display: inline-block;
     line-height: @header-height;

@@ -1,4 +1,5 @@
 <header class="semasky-header">
+  <img class="logo" src="/assets/images/logo.png">
   <span class="semasky">
     Semasky
   </span>
@@ -6,9 +7,19 @@
     Semantic Content Management Cloud
   </span>
 
-  <span class="logout">
+  <span class="logout"  *ngIf="type === 'search'">
     <a (click)="logout($event)">
       ログアウト
+    </a>
+  </span>
+
+  <span class="welcome"  *ngIf="type === 'welcome'">
+    <a (click)="logout($event)">
+      新規登録
+    </a>
+    /
+    <a (click)="logout($event)">
+      ログイン
     </a>
   </span>
 </header>
