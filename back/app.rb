@@ -50,6 +50,7 @@ class App < Sinatra::Base
     else
       user = User.find_by(email: params["email"])
       if user.password == Helper.hash(params["password"])
+        session[:user_id] = user.id
         [200, {id: user.id}.to_json]
       else
         [404, {}.to_json]
@@ -57,8 +58,13 @@ class App < Sinatra::Base
     end
   end
 
+  get '/api/ping' do
+    [200, {id: session[:user_id]}.to_json]
+  end
+
   get '/api/demo' do
     cross_origin
+    session[:user_id] = -1
     [200, {id: -1}.to_json]
   end
 
@@ -67,9 +73,15 @@ class App < Sinatra::Base
     params = JSON.parse(request.body.read)["data"]
     if User.find_by(email: params["email"]).nil?
       user = User.create!(email: params["email"], password: Helper.hash(params["password"]))
+      session[:user_id] = user.id
       [200, {id: user.id}.to_json]
     else
       [409, {}.to_json]
     end
+  end
+
+  get '/api/logout' do
+    reset_session
+    [200, {}.to_json]
   end
 end

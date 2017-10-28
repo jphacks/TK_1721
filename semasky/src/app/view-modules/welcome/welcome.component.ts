@@ -9,6 +9,6 @@ export class WelcomeComponent {
   constructor(
     private _router: Router
   ) {
-    _router.navigate(['/search']);
+    // _router.navigate(['/search']);
   }
 }
