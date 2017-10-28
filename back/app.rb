@@ -4,7 +4,6 @@ require 'sinatra/cross_origin'
 
 require 'base64'
 
-require 'digest/sha2'
 require_relative 'models/init'
 
 class App < Sinatra::Base
