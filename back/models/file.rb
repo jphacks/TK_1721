@@ -2,15 +2,15 @@ require_relative 'database'
 require_relative 'helper'
 
 class UserFileModel
-  def self.save(name, path, author = 'hoge')
-    hash = "#{hash(fn + rand())}.#{File.extname(fn)}"
-    save_path = "./public/images/#{hash}"
+  def self.save(name, dat, author = 'hoge')
+    hash = "#{Helper.hash(name + rand().to_s)}#{File.extname(name)}"
+    save_path = "./public/#{hash}"
     IO.binwrite(save_path, dat)
-    file = UserFile.create!(name: name, username: author, hash: hash)
+    file = UserFile.create!(name: name, username: author, hashfn: hash)
     return file
   end
 
   def self.find_by_keywords(keywords)
-    Filetags.where(name: keywords).map{|fts| fts.files}
+    Filetag.joins(:tag).where(tags: {name: keywords}).map{|fts| fts.user_file}.uniq
   end
 end

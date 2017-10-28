@@ -13,28 +13,28 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  post '/api/upload' do
-    if params[:file]
-      fn = params[:file][:filename]
-      dat= params[:file][:tempfile].read
-      file_id = FileModel.save(fn, dat).id
-      Keywords.save(file_id, keywords) # TODO keywords
+  post '/api/upload', provides: :json do
+    params = JSON.parse request.body.read
+    p params
+    fn = params["filename"]
+    dat= params["file"]
+    file_id  = UserFileModel.save(fn, dat).id
+    keywords = ['hoge', 'fuga']
+    KeywordModel.save(file_id, keywords) # TODO keywords
 
-      return [200, {}.to_json]
-    else
-      return [500, {}.to_json]
-    end
+    return [200, {}.to_json]
   end
 
-  post '/api/search' do
-    @ranking = Ranking.new.ranking
+  post '/api/search', provides: :json do
+    params = JSON.parse request.body.read
+    {files: UserFileModel.find_by_keywords(params["keywords"]).map(&:attributes)}.to_json
   end
 
-  get '/api/login' do
-    200
+  post '/api/login' do
+    [200, {uid: 'hoge'}.to_json]
   end
 
-  get '/api/register' do
-    200
+  post '/api/register' do
+    [200, {uid: 'hoge'}.to_json]
   end
 end

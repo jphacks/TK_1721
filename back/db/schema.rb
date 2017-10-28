@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20171028043619) do
 
   create_table "filetags", force: :cascade do |t|
-    t.integer "file_id"
+    t.integer "user_file_id"
     t.integer "tag_id"
   end
 
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20171028043619) do
     t.string "name"
   end
 
-  create_table "user_file", force: :cascade do |t|
-    t.string   "name"
-    t.string   "username"
-    t.string   "hash"
+  create_table "user_files", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "hashfn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
