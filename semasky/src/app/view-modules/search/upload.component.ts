@@ -57,7 +57,7 @@ export class UploadComponent {
     });
   }
 
-  success() {
+  success(e) {
   }
 
   error(e) {
