@@ -16,7 +16,7 @@ export class LoginService {
 
   login(user: User, success: Function, error: Function): Subscription {
     let self = this;
-    let url: string = `login`;
+    let url: string = `api/login`;
     let params = {
       user: user
     };

@@ -10,6 +10,6 @@ export class ApiService extends HttpService {
     protected _http: Http
   ) {
     super(_http);
-    this._prefix = config.http.API;
+    this._prefix = config.http.HOST;
   }
 }
