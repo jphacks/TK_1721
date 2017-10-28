@@ -9,7 +9,7 @@ require 'pdf-reader'
 require 'docx'
 
 # titleにタイトル、bodyに本文を入れて
-def document2keyword(title, body)
+def document2keyword(title, path)
   body = ""
 
   ext = File.extname(path)
@@ -30,7 +30,7 @@ def document2keyword(title, body)
     end
   end
 
-  body = body.gsub(/(?:\n\r?|\r\n?)/, ' ').split.join(" ")[0..5000]
+  body = body.gsub(/(?:\n\r?|\r\n?)/, ' ').split.join(" ")[0..1000]
 
   url = "https://labs.goo.ne.jp/api/keyword"
   uri = URI.parse(url)
@@ -45,5 +45,4 @@ def document2keyword(title, body)
   response = http.request(request)
   html = response.body
   res = JSON.load(html)["keywords"].map{|x| x.keys}.flatten(1)
-  p res
 end

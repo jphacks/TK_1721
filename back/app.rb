@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/cross_origin'
 
 require 'base64'
+require_relative '../apis/pdf_api/pdf'
 
 require_relative 'models/init'
 
@@ -24,9 +25,11 @@ class App < Sinatra::Base
     params = JSON.parse(request.body.read)["data"]
     fn = params["filename"]
     dat= Base64.decode64(params["file"])
-    file_id  = UserFileModel.save(fn, dat).id
-    keywords = ['hoge', 'fuga']
-    KeywordModel.save(file_id, keywords) # TODO keywords
+    uf, fpath = UserFileModel.save(fn, dat)
+    file_id = uf.id
+    keywords = document2keyword(fn, fpath)
+    p keywords
+    KeywordModel.save(file_id, keywords)
 
     return [200, {}.to_json]
   end
