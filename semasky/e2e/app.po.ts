@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class SemaskiPage {
+export class SemaskyPage {
   navigateTo() {
     return browser.get('/');
   }
