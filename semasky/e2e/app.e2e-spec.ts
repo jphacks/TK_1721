@@ -1,10 +1,10 @@
-import { SemaskiPage } from './app.po';
+import { SemaskyPage } from './app.po';
 
-describe('semaski App', () => {
-  let page: SemaskiPage;
+describe('semasky App', () => {
+  let page: SemaskyPage;
 
   beforeEach(() => {
-    page = new SemaskiPage();
+    page = new SemaskyPage();
   });
 
   it('should display message saying app works', () => {

@@ -1,4 +1,4 @@
-<section class="search-box">
+<section class="search-section">
   <div class="box">
     <span class="icon">
       <i class="material-icons">search</i>
@@ -6,3 +6,6 @@
     <input type="text"/>
   </div>
 </section>
+
+<search-result *ngIf="!!files && files.length > 0" [files]="files"></search-result>
+<upload></upload>

@@ -1,0 +1,22 @@
+.upload-section {
+  #droppable {
+    height: calc(~'100vh - 320px');
+    line-height: calc(~'100vh - 320px');
+    width: 100%;
+    .help {
+      display: none;
+    }
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+
+    &.ondrop {
+      background: rgba(0, 0, 0, 0.3);
+
+      .help {
+        display: inline-block;
+        font-size: 60px;
+        color: @white;
+      }
+    }
+  }
+}
