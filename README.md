@@ -1,9 +1,32 @@
-# サンプル（プロダクト名）
+# Semasky
 
 [![Product Name](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project is supported by [goo API](http://u.xgoo.jp/img/sgoo.png)
+
+## Requirements
+* node v7.5.0 or later
+* npm v4.6.1 or later
+
+## Setup
+```
+$ npm i
+```
+
+## Run
+```
+$ ng s
+```
+
+## Build
+```
+$ ng build
+$ ng build --prod  // for production
+```
+
 ## 製品概要
-### X Tech（X → 今回皆さんが選定した好きな言葉に書き換えてください）
+### X Cloud
 
 ### 背景（製品開発のきっかけ、課題等）
 ここに
