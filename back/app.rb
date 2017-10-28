@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/cross_origin'
 
 require 'base64'
-require_relative '../apis/pdf_api/pdf'
+require_relative '../apis/file2keyword'
 
 require_relative 'models/init'
 
@@ -27,7 +27,7 @@ class App < Sinatra::Base
     dat= Base64.decode64(params["file"])
     uf, fpath = UserFileModel.save(fn, dat)
     file_id = uf.id
-    keywords = document2keyword(fn, fpath)
+    keywords = file2keyword(fn, fpath)
     keywords << 'hoge'
     p keywords
     KeywordModel.save(file_id, keywords)
