@@ -9,7 +9,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Setup
 ```
 $ npm i
-$ bower i
 ```
 
 ## Run
