@@ -1,0 +1,38 @@
+.search-box {
+  height: 400px;
+  margin: @margin-xxlarge * 2 0;
+
+  .box {
+    background: @white;
+    @_height: 60px;
+    height: @_height;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+
+    .icon {
+      display: inline-block;
+      height: @_height;
+      width: @_height;
+      background: @teal-lighten-2;
+      text-align: center;
+    }
+
+    i {
+      font-size: 40px;
+      color: @white;
+      line-height: @_height;
+    }
+
+    input {
+      float: right;
+      font-size: 20px;
+      width: calc(~'100% - @{_height}');
+      border: none;
+      box-shadow: none;
+      padding: @padding-normal @padding-large;
+
+      color: @gray-darken-3;
+    }
+  }
+}

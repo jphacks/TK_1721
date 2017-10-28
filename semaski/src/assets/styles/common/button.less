@@ -1,0 +1,52 @@
+.base-button() {
+  border: none;
+  border-radius: 3px;
+  transition: all linear .08s;
+  background: @blue-lighten-1;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  color: @white;
+  padding: (@padding-normal - 1px) @padding-large;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background: @blue;
+    cursor: pointer;
+  }
+
+  &[disabled], &.disabled {
+    cursor: not-allowed !important;
+    background: @gray-lighten-1 !important;
+    color: @gray-darken-1 !important;
+    box-shadow: none !important;
+  }
+}
+
+.rectbutton(@color) {
+  border: none;
+  color: @white;
+  background: @color;
+  transition: all linear .08s;
+  padding: (@padding-normal + 1px) @padding-large;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background: lighten(@color, 10%);
+    cursor: pointer;
+  }
+}
+
+.framebutton(@color) {
+  border: 2px solid @color;
+  color: @color;
+  transition: all linear .08s;
+  padding: (@padding-normal - 1px) @padding-large;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background: fade(@color, 20%);
+    cursor: pointer;
+  }
+}

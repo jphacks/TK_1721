@@ -1,0 +1,64 @@
+.error-input() {
+  background: @red-lighten-5;
+  border-color: @red-lighten-3;
+  box-shadow: 0 0 4px @red-darken-4;
+}
+
+.base-input() {
+  width: 100%;
+  max-width: @mobile-width;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 @padding-small + 2px;
+  border-radius: 3px;
+  transition: linear all .18s;
+
+  &[disabled] {
+    background: @gray-lighten-5;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &:focus {
+    border-color: @blue-lighten-3;
+    box-shadow: 0 0 8px @blue-lighten-3;
+  }
+
+  &.ng-touched {
+    &.ng-invalid {
+      .error-input();
+    }
+  }
+}
+
+.color-placeholder(@color) {
+  ::-webkit-input-placeholder {
+    color: @color;
+  }
+  :-moz-placeholder {
+    color: @color;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    color: @color;
+    opacity:  1;
+  }
+  :-ms-input-placeholder {
+    color: @color;
+  }
+  ::-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+.base-textarea() {
+  .base-input();
+  height: 5em;
+  line-height: @line-height;
+}
+
+.base-select() {
+  .base-input();
+  border-radius: 3px !important;
+}

@@ -1,0 +1,66 @@
+body {
+  font-family: @font-family;
+  font-weight: normal;
+  font-size: @font-size-normal;
+  line-height: @line-height;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-strict;
+  -webkit-font-smoothing: antialiased;
+  color: @black;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+a {
+  color: @blue;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: @blue-darken-1;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: block;
+}
+
+section {
+  position: relative;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+input[type="text"], input[type="phone"], input[type="number"], input[type="password"], textarea, select {
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border: solid 1px @gray-lighten-2;
+  transition: all linear .25s;
+
+  &:active, &:focus {
+    border-color: @blue-lighten-3;
+    box-shadow: 0 0 4px @blue-lighten-2;
+  }
+}
+
+button {
+  outline: none;
+  &[disabled] {
+    cursor: not-allowed !important;
+  }
+}
