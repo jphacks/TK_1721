@@ -4,3 +4,22 @@
     {{file.name}}
   </span>
 </div>
+
+<div class="file-detail" [id]="file.uri">
+  <div class="contents">
+    <div class="abstract">
+      <span class="name">
+        {{file.name}}
+      </span>
+
+      <div class="image-container">
+        <img [src]="file.formatImage">
+      </div>
+    </div>
+    <div class="downloads">
+      <a (click)="save($event)">
+        <i class="material-icons">file_download</i>ダウンロード
+      </a>
+    </div>
+  </div>
+</div>
