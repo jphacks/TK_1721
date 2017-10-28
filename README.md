@@ -2,8 +2,8 @@
 
 [![Product Name](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
-This project is supported by [goo API](http://u.xgoo.jp/img/sgoo.png)
+* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+* This project is using goo API[![goo API](http://u.xgoo.jp/img/sgoo.png)]
 
 ## Requirements
 * node v7.5.0 or later
