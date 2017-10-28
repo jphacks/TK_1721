@@ -7,4 +7,11 @@ import { File } from '../../entities';
 })
 export class SearchMainComponent {
   public files: File[];
+
+  ngAfterViewInit() {
+    let input = document.getElementById('search-input');
+    input.addEventListener('keyup', e => {
+      console.log("hoge");
+    });
+  }
 }
