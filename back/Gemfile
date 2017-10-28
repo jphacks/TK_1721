@@ -17,3 +17,7 @@ gem 'sinatra-activerecord'
 gem 'rake'
 
 gem 'foreman'
+
+
+gem 'pdf-reader'
+gem 'docx'

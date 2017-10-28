@@ -7,7 +7,7 @@ class UserFileModel
     save_path = "./public/#{hash}"
     IO.binwrite(save_path, dat)
     file = UserFile.create!(name: name, username: author, hashfn: hash)
-    return file
+    return [file, save_path]
   end
 
   def self.find_by_keywords(keywords)
