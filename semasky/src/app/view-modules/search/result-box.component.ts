@@ -12,7 +12,7 @@ export class ResultBoxComponent {
   ngAfterViewInit() {
     let self = this;
     addEventListener('click', e => {
-      if (document.getElementById("overlay").style.display === "block") {
+      if (document.getElementById("overlay").style.display === "block" && (<HTMLElement>(e.target)).tagName !== "A") {
         document.getElementById("overlay").style.display = "none";
         let elems = document.getElementsByClassName("file-detail");
         for (let i = 0; i < elems.length; i++) {
@@ -30,10 +30,16 @@ export class ResultBoxComponent {
   download(event) {
     event.preventDefault();
     let self = this;
-    // save(self.file.uri, self.file.name);
 
     document.getElementById("overlay").style.display = "block";
     document.getElementById(self.file.uri).style.display = "block";
+    event.stopPropagation();
+  }
+
+  save(event) {
+    event.preventDefault();
+    let self = this;
+    save(self.file.uri, self.file.name);
     event.stopPropagation();
   }
 }

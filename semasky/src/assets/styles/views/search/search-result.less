@@ -52,9 +52,10 @@
       padding: @padding-xlarge;
 
       .abstract {
+        .clearfix();
         .image-container {
           float: right;
-          height: 150px;
+          height: 100px;
           width: 150px;
           display: inline-block;
 
@@ -74,6 +75,22 @@
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+        }
+      }
+
+      .downloads {
+        text-align: right;
+        padding: @padding-small 0;
+        a {
+          font-size: @font-size-normal - 2px;
+          display: inline-flex;
+          vertical-align: middle;
+
+          color: @gray-darken-2;
+
+          &:hover {
+            color: @gray-darken-3;
+          }
         }
       }
     }
