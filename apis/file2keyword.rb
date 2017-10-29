@@ -38,7 +38,7 @@ def file2keyword(title, path)
 
   body = body.encode("euc-jp", NKF.guess(body).name, undef: :replace, invalid: :replace, replace: '').encode("UTF-8", undef: :replace, invalid: :replace, replace: '')
   body = body.gsub(/[^[:word:]]+/,' ')
-  bodies = body.gsub(/(\n\r|\r\n)/, ' ').scan(/.{500}/)
+  bodies = body.gsub(/(\n\r|\r\n)/, ' ').scan(/.{1,500}/)
   bodies.map do |body|
     url = "https://labs.goo.ne.jp/api/keyword"
     uri = URI.parse(url)
