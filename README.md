@@ -63,7 +63,8 @@
 * ビジネスマンの労働時間の1割以上はファイルの検索に当てられていると言われており、労働生産性をあげる
 
 ### 今後の展望
-* ファイルシステムにマウントし、OS上で動作するようにする
+* 提案するタグの改善
+* OSとのインタフェースを作り、マウントできるようにする
 
 ## 開発内容・開発技術
 ### 活用した技術
@@ -78,29 +79,42 @@
 * Angular
 
 ### 独自開発技術（Hack Dayで開発したもの）
+* ファイルのタグ付けの自動化
+* RDBを用いたファイル、タグの管理
+* ドラッグ&ドロップでファイルをアップロード
+* Base64 encodingによるファイルのアップロードシステム
+* 一括アップロード
 * 拡張子に応じたサムネイルを表示
 * 画像はプレビューを表示
-* ドラッグ&ドロップでファイルをアップロード
 * ログインシステムの開発
-* Base64 encodingによるファイルのアップロード&ダウンロードシステム
-* 一括アップロード
-* ファイルのタグ付けの自動化
-* データベース用いたファイル、タグの管理
 * 本番環境へのデプロイ
 
-## How to use
+## How to Run
 
 ### Requirements
 * node v7.5.0 or later
 * npm v4.6.1 or later
+* ruby v2.3 or later
 
 ### Setup
 ```
+$ cd back 
+$ gem install bundle
+$ bundle install 
+$ RACK_ENV=production bundle exec rake db:migrate
+$ cd -
+
+$ cd semasky
 $ npm i
 ```
 
 ### Run
 ```
+$ cd back 
+$ RACK_ENV=production bundle exec rackup -D
+$ cd -
+
+$ cd semasky
 $ ng s
 ```
 
@@ -112,4 +126,5 @@ $ ng build --prod  // for production
 
 * This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 * This project is using goo API
+
 ![goo API](http://u.xgoo.jp/img/sgoo.png)
