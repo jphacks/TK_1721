@@ -1,10 +1,13 @@
 # Semasky
+
+You can try this here!: http://semasky.com/
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
 - [製品概要](#%E8%A3%BD%E5%93%81%E6%A6%82%E8%A6%81)
-  - [X Cloud](#x-cloud)
+  - [File management x Cloud x Tech](#file-management-x-cloud-x-tech)
   - [背景](#%E8%83%8C%E6%99%AF)
   - [製品説明](#%E8%A3%BD%E5%93%81%E8%AA%AC%E6%98%8E)
   - [特長](#%E7%89%B9%E9%95%B7)
@@ -18,7 +21,7 @@
     - [API・データ](#api%E3%83%BB%E3%83%87%E3%83%BC%E3%82%BF)
     - [フレームワーク・ライブラリ・モジュール](#%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%BB%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%83%BB%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB)
   - [独自開発技術（Hack Dayで開発したもの）](#%E7%8B%AC%E8%87%AA%E9%96%8B%E7%99%BA%E6%8A%80%E8%A1%93hack-day%E3%81%A7%E9%96%8B%E7%99%BA%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE)
-- [How to use](#how-to-use)
+- [How to Run](#how-to-run)
   - [Requirements](#requirements)
   - [Setup](#setup)
   - [Run](#run)
