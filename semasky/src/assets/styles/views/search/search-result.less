@@ -1,5 +1,4 @@
 .search-result-section {
-  overflow: scroll;
   height: calc(~'100vh - 320px');
 
   .contents {
@@ -91,6 +90,21 @@
           &:hover {
             color: @gray-darken-3;
           }
+        }
+      }
+
+      .tags {
+        margin: @margin-xlarge 0 0;
+        color: @white;
+        font-size: @font-size-small;
+        height: 220px;
+        overflow: scroll;
+
+        .tag {
+          background: @gray-darken-1;
+          padding: 2px 5px;
+          border-radius: 8px;
+          margin: 0 @margin-small;
         }
       }
     }
