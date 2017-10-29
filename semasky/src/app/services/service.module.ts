@@ -6,7 +6,7 @@ import { ApiService } from './base';
 import { FileService } from './files';
 import { LoginService } from './login';
 import { RegisterService } from './register';
-import { UserStoreService } from './users';
+import { UserStoreService, UserService } from './users';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { UserStoreService } from './users';
     FileService,
     LoginService,
     RegisterService,
-    UserStoreService
+    UserStoreService,
+    UserService
   ]
 })
 

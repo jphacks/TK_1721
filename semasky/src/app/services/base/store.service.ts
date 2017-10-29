@@ -5,13 +5,13 @@ export abstract class StoreService<T extends Entity> {
   protected _current: T;
   protected _list: T[] = [];
   protected _stashed: T[] = [];
-  protected _map: {[uid: string]: T} = {};
+  protected _map: {[id: number]: T} = {};
 
   /*
    * Helpers
    */
-  exists(uid: string): boolean {
-    let res = this.getObject(uid, false);
+  exists(id: number): boolean {
+    let res = this.getObject(id, false);
     if (!!res) {
       return true;
     } else {
@@ -22,7 +22,7 @@ export abstract class StoreService<T extends Entity> {
   copyList(): T[] {
     let aList: T[] = [];
     for (let item of this._list) {
-      aList.push(this._map[item.uid]);  // copy objects references
+      aList.push(this._map[item.id]);  // copy objects references
     }
     return aList;
   }
@@ -75,7 +75,7 @@ export abstract class StoreService<T extends Entity> {
         Logger.error(`\`current\` can only be override with \`override = true\` option.`)
         return;
       } else {
-        if (object.uid === this._current.uid) {
+        if (object.id === this._current.id) {
           Logger.warn('attempt to bind same object.', object);
           return;
         }
@@ -116,7 +116,7 @@ export abstract class StoreService<T extends Entity> {
 
   unshiftObject(object: T): void {
     this._list.unshift(object);
-    if (!this._map[object.uid]) {
+    if (!this._map[object.id]) {
       this.addObject(object);
     }
   }
@@ -151,7 +151,7 @@ export abstract class StoreService<T extends Entity> {
 
   pushObject(object: T): void {
     this._list.push(object);
-    if (!this.exists(object.uid)) {
+    if (!this.exists(object.id)) {
       this.addObject(object);
     }
   }
@@ -193,46 +193,46 @@ export abstract class StoreService<T extends Entity> {
     Logger.error(`No direct assertion to map is allowed. Use \`addObject\` or 'addObjects' instead.`)
   }
 
-  getObject(uid: string, validate: boolean = true): T {
-    if (!uid) {
+  getObject(id: number, validate: boolean = true): T {
+    if (!id) {
       if (validate) {
-        Logger.error(`uid is empty.`);
+        Logger.error(`id is empty.`);
       }
       return null;
     }
 
-    if (!this._map[uid]) {
+    if (!this._map[id]) {
       if (validate) {
-        Logger.error(this, `No object exists in map with uid=\`${uid}\`.`);
+        Logger.error(this, `No object exists in map with id=\`${id}\`.`);
       }
       return null;
     } else {
-      return this._map[uid];
+      return this._map[id];
     }
   }
 
   addObject(object: T, validate: boolean = true, override: boolean = false): void {
-    if (!object.uid) {
-      Logger.error(`object has no key of uid.`, object);
+    if (!object.id) {
+      Logger.error(`object has no key of id.`, object);
       return;
     }
 
-    if (this._map[object.uid]) {
+    if (this._map[object.id]) {
       if (validate) {
         if (override) {
-          Logger.info(`${object.uid} overrided with: `, object);
-          this._map[object.uid] = object;
+          Logger.info(`${object.id} overrided with: `, object);
+          this._map[object.id] = object;
         } else {
-          Logger.warn(`${object.uid} already stored in map. Attempted to store: `, object, `Original value: `, this._map[object.uid]);
+          Logger.warn(`${object.id} already stored in map. Attempted to store: `, object, `Original value: `, this._map[object.id]);
         }
       } else {
         if (override) {
-          this._map[object.uid] = object;
+          this._map[object.id] = object;
         }
       }
     } else {
-      Logger.log(`${object.uid} added.`, object);
-      this._map[object.uid] = object;
+      Logger.log(`${object.id} added.`, object);
+      this._map[object.id] = object;
     }
   }
 
@@ -242,27 +242,27 @@ export abstract class StoreService<T extends Entity> {
     }
   }
 
-  deleteObject(uid: string): void {
-    if (!this._map[uid]) {
-      Logger.warn(`map doesn't have object with uid: ${uid}.`)
+  deleteObject(id: number): void {
+    if (!this._map[id]) {
+      Logger.warn(`map doesn't have object with id: ${id}.`)
       return
     } else {
-      // delete this._map[uid];
-      this._map[uid] = null;
+      // delete this._map[id];
+      this._map[id] = null;
     }
   }
 
-  deleteObjects(uids: string[]): void {
-    for (let uid of uids) {
-      this.deleteObject(uid);
+  deleteObjects(ids: number[]): void {
+    for (let id of ids) {
+      this.deleteObject(id);
     }
   }
 
   deleteAllObjects(): void {
     this._map = {};
 
-    // for (let uid in this._map) {
-    //   this.deleteObject(uid);
+    // for (let .id in this._map) {
+    //   this.deleteObject(.id);
     // }
   }
 }

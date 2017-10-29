@@ -38,7 +38,7 @@ def file2keyword(title, path)
 
   body = body.encode("euc-jp", NKF.guess(body).name, undef: :replace, invalid: :replace, replace: '').encode("UTF-8", undef: :replace, invalid: :replace, replace: '')
   body = body.gsub(/[^[:word:]]+/,' ')
-  bodies = body.gsub(/(\n\r|\r\n)/, ' ').scan(/.{500}/)
+  bodies = body.gsub(/(\n\r|\r\n)/, ' ').scan(/.{1,500}/)
   bodies.map do |body|
     url = "https://labs.goo.ne.jp/api/keyword"
     uri = URI.parse(url)
@@ -48,7 +48,7 @@ def file2keyword(title, path)
     http.use_ssl = true
 
     request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' => 'application/json')
-    request.body = {app_id: '72e29ca055aeaf8bd957c10999f0d2c2eab91163aa990a7b2b905c07f5b34a4b', title: title, body: body, max_num: 20}.to_json
+    request.body = {app_id: ENV['GOO_APPID'] || '72e29ca055aeaf8bd957c10999f0d2c2eab91163aa990a7b2b905c07f5b34a4b', title: title, body: body, max_num: 20}.to_json
 
     response = http.request(request)
     next [] if response.code.to_i != 200

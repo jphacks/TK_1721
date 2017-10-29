@@ -1,0 +1,32 @@
+.catch-section {
+  height: 500px;
+  background: url('/assets/images/welcome.jpg');
+  background-size: cover;
+
+  .message {
+    padding: @padding-xxlarge * 2 0 0 @padding-xxlarge * 3;
+    color: @white;
+    font-size: 50px;
+    font-weight: 400;
+
+    .semasky {
+      font-size: 60px;
+      font-weight: 600;
+    }
+  }
+
+  .demo {
+    margin: @margin-xxlarge * 2 0 0 @margin-xxlarge * 3;
+
+    .btn {
+      .rectbutton(@teal-lighten-1);
+      padding: @padding-normal @padding-xxlarge;
+      border-radius: 2px;
+      font-size: 20px;
+
+      &:hover {
+        background: @teal;
+      }
+    }
+  }
+}

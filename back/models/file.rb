@@ -11,6 +11,8 @@ class UserFileModel
   end
 
   def self.find_by_keywords(keywords)
-    Filetag.joins(:tag).where(tags: {name: keywords}).map{|fts| fts.user_file}.uniq
+    tag_ids = Tag.where(name: keywords.uniq).map(&:id).uniq
+    file_ids = Filetag.where(tag_id: tag_ids).group(:user_file_id).having('COUNT(*) = ?', tag_ids.size).map(&:user_file_id)
+    UserFile.where(id: file_ids).uniq
   end
 end

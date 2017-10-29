@@ -14,11 +14,11 @@ export class LoginService {
   ) {
   }
 
-  login(user: User, success: Function, error: Function): Subscription {
+  login(user: any, success: Function, error: Function): Subscription {
     let self = this;
     let url: string = `api/login`;
     let params = {
-      user: user
+      data: user
     };
     let block = (json: JSON) => {
       let user: User = new User(json);

@@ -1,12 +1,13 @@
 <header class="semasky-header">
+  <img class="logo" src="/assets/images/logo.png">
   <span class="semasky">
     Semasky
   </span>
   <span class="subtitle">
-    Semantic Content Management Cloud
+    Semantic File Management Cloud
   </span>
 
-  <span class="logout">
+  <span class="logout"  *ngIf="type === 'search'">
     <a (click)="logout($event)">
       ログアウト
     </a>

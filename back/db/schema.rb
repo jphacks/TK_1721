@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028043619) do
+ActiveRecord::Schema.define(version: 20171028194306) do
 
   create_table "filetags", force: :cascade do |t|
     t.integer "user_file_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20171028043619) do
     t.string "hashfn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+  end
+
+  create_table "usertags", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tag_id"
   end
 
 end
