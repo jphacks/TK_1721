@@ -26,7 +26,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-[![Semasky](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
+[![Semasky](https://i.imgur.com/jfH1NdV.jpg)](https://youtu.be/_hZz8RE6xkE)
 
 ## 製品概要
 ### File management x Cloud x Tech
