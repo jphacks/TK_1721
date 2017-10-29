@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { RegisterService } from '../../services/register';
 
 @Component({
@@ -7,7 +8,8 @@ import { RegisterService } from '../../services/register';
 })
 export class RegisterComponent {
   constructor(
-    private _register: RegisterService
+    private _register: RegisterService,
+    private _router: Router
   ) {
   }
 
@@ -21,7 +23,8 @@ export class RegisterComponent {
   }
 
   success(user) {
-    console.log(user);
+    let self = this;
+    self._router.navigate(["/search"]);
   }
 
   error() {

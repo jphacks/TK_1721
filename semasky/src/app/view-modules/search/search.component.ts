@@ -28,5 +28,7 @@ export class SearchComponent {
 
   error(e) {
     console.error(e);
+    let self = this;
+    self._router.navigate(["/"]);
   }
 }

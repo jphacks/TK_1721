@@ -59,7 +59,11 @@ class App < Sinatra::Base
   end
 
   get '/api/ping' do
-    [200, {id: session[:user_id]}.to_json]
+    if session[:user_id].nil?
+      [404, {}.to_json]
+    else
+      [200, {id: session[:user_id]}.to_json]
+    end
   end
 
   get '/api/demo' do
@@ -81,7 +85,7 @@ class App < Sinatra::Base
   end
 
   get '/api/logout' do
-    reset_session
+    session[:user_id] = nil
     [200, {}.to_json]
   end
 end

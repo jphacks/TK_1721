@@ -25,4 +25,10 @@ export class UserService {
     let url: string = `api/ping`;
     return self._api.request(RequestType.GET, url, null, success, error);
   }
+
+  demo(success: Function, error: Function): Subscription {
+    let self = this;
+    let url: string = `api/demo`;
+    return self._api.request(RequestType.GET, url, null, success, error);
+  }
 }

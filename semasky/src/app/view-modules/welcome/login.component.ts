@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../../services/login';
 
 @Component({
@@ -7,7 +8,8 @@ import { LoginService } from '../../services/login';
 })
 export class LoginComponent {
   constructor(
-    private _login: LoginService
+    private _login: LoginService,
+    private _router: Router
   ) {
   }
 
@@ -21,7 +23,8 @@ export class LoginComponent {
   }
 
   success(user) {
-    console.log(user);
+    let self = this;
+    self._router.navigate(["/search"]);
   }
 
   error() {
