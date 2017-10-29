@@ -32,8 +32,8 @@
 ## 製品概要
 ### File management x Cloud x Tech
 
-You can try this here!: http://semasky.com/
-Slide url: https://www.slideshare.net/secret/fnnUtNH8Cd1jj9
+* You can try this here!: http://semasky.com/
+* Slide url: https://www.slideshare.net/secret/fnnUtNH8Cd1jj9
 
 ### 背景
 * 広く使われているファイル管理システムの木構造はプログラムにとっては効率的だが設計時に人間が使うことは想定されていなかった。(プログラムが自動でファイルを読むときには場所が一意に決まるから木構造は非常に便利)
