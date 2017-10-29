@@ -29,14 +29,15 @@
 [![Semasky](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/channel/UC4PtjOfZTbVp9DwtJv82Lzg)
 
 ## 製品概要
-### Cloud Tech
+### File management x Cloud x Tech
 
 ### 背景
 * 我々が普段よく使っているファイルシステムの木構造はプログラムにとっては効率的だが設計当初は人間が使うことは想定されていなかった。(プログラムが自動でファイルを読むときには場所が一意に決まるから木構造は非常に便利)
 ![tree](images/tree_small.png)
 
 * この構造は人間にとって非常に効率が悪く、非直感的なシステムであり、現状はマシン向けに作られたものを人間が無理やり使っている状態。
-![venn](images/venn_small.png)
+![venn](images/venn.png)
+
 * 人間はファイルの"場所"ではなく、ファイルの中身の"意味"によってファイルを識別している。
 * よって、直感的にファイルを意味によって管理できるクラウドシステムを提案する。
 ![sema](images/sema_small.png)
