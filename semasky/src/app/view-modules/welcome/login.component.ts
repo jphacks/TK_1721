@@ -15,6 +15,7 @@ export class LoginComponent {
 
   submit(event) {
     event.preventDefault();
+    event.stopPropagation();
     let self = this;
     self._login.login({
       email: event.target[0].value,

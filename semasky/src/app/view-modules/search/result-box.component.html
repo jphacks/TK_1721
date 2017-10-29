@@ -21,5 +21,11 @@
         <i class="material-icons">file_download</i>ダウンロード
       </a>
     </div>
+
+    <div class="tags" *ngIf="tags.length > 0">
+      <span *ngFor="let tag of tags" class="tag">
+        {{tag}}
+      </span>
+    </div>
   </div>
 </div>
