@@ -15,6 +15,7 @@ export class RegisterComponent {
 
   submit(event) {
     event.preventDefault();
+    event.stopPropagation();
     let self = this;
     self._register.register({
       email: event.target[0].value,
