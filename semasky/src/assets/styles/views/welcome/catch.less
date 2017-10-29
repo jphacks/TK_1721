@@ -14,4 +14,19 @@
       font-weight: 600;
     }
   }
+
+  .demo {
+    margin: @margin-xxlarge * 2 0 0 @margin-xxlarge * 3;
+
+    .btn {
+      .rectbutton(@teal-lighten-1);
+      padding: @padding-normal @padding-xxlarge;
+      border-radius: 2px;
+      font-size: 20px;
+
+      &:hover {
+        background: @teal;
+      }
+    }
+  }
 }
