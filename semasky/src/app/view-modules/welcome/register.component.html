@@ -1,2 +1,27 @@
 <section class="register-section">
+  <div class="select">
+    <div class="register">
+      新規登録
+    </div>
+    <div class="login" id="login">
+      ログイン
+    </div>
+  </div>
+  <form class="register-form" (submit)="submit($event)">
+    <div class="input">
+      <label>
+        メールアドレス
+      </label>
+      <input type="text">
+
+      <label>
+        パスワード
+      </label>
+      <input type="password">
+    </div>
+
+    <button type="submit" class="btn">
+      新規登録
+    </button>
+  </form>
 </section>

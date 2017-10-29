@@ -1,9 +1,9 @@
 export class Entity {
-  public uid: string;
+  public id: number;
 
   constructor(obj?: JSON) {
     obj = obj || <JSON>{};
 
-    this.uid = obj['uid'];
+    this.id = obj['id'];
   }
 }
