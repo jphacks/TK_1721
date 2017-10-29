@@ -98,7 +98,7 @@
 
 ### Setup
 ```
-$ cd back 
+$ cd back
 $ gem install bundle
 $ bundle install 
 $ RACK_ENV=production bundle exec rake db:migrate
@@ -110,7 +110,7 @@ $ npm i
 
 ### Run
 ```
-$ cd back 
+$ cd back
 $ RACK_ENV=production bundle exec rackup -D
 $ cd -
 
