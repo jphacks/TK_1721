@@ -32,4 +32,16 @@ export class FileService {
 
     return self._api.request(RequestType.POST, url, params, success, error);
   }
+
+  getTags(id: number, success: Function, error: Function): Subscription {
+    let self = this;
+    let url: string = `api/fileinfo`;
+    let params = {
+      data: {
+        file_id: id
+      }
+    };
+
+    return self._api.request(RequestType.POST, url, params, success, error);
+  }
 }

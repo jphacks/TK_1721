@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { File } from '../../entities';
+import { FileService } from '../../services/files';
 import { save } from '../../helpers';
 
 @Component({
@@ -8,6 +9,12 @@ import { save } from '../../helpers';
 })
 export class ResultBoxComponent {
   @Input() file: File;
+  public tags: string[] = [];
+
+  constructor(
+    private _file: FileService
+  ) {
+  }
 
   ngAfterViewInit() {
     let self = this;
@@ -25,6 +32,8 @@ export class ResultBoxComponent {
     document.getElementById(self.file.uri).addEventListener('click', e => {
       e.stopPropagation();
     });
+
+    self._file.getTags(self.file.id, self.success.bind(self), self.error.bind(self));
   }
 
   download(event) {
@@ -41,5 +50,16 @@ export class ResultBoxComponent {
     let self = this;
     save(self.file.uri, self.file.name);
     event.stopPropagation();
+  }
+
+  success(response) {
+    let self = this;
+    for (let tag of response["tags"]) {
+      self.tags.push(tag);
+    }
+  }
+
+  error(e) {
+    console.error(e);
   }
 }
