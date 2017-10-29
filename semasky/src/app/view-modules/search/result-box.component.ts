@@ -19,7 +19,7 @@ export class ResultBoxComponent {
   ngAfterViewInit() {
     let self = this;
     addEventListener('click', e => {
-      if (document.getElementById("overlay").style.display === "block" && (<HTMLElement>(e.target)).tagName !== "A") {
+      if (!!document.getElementById("overlay") && document.getElementById("overlay").style.display === "block" && (<HTMLElement>(e.target)).tagName !== "A") {
         document.getElementById("overlay").style.display = "none";
         let elems = document.getElementsByClassName("file-detail");
         for (let i = 0; i < elems.length; i++) {
