@@ -4,6 +4,7 @@ require 'sinatra/cross_origin'
 
 require 'base64'
 require_relative '../apis/file2keyword'
+require_relative '../apis/small_apis/similar'
 
 require_relative 'models/init'
 require_relative 'models/helper'
@@ -40,7 +41,11 @@ class App < Sinatra::Base
   post '/api/search', provides: :json do
     cross_origin
     params = JSON.parse(request.body.read)["data"]
-    {files: UserFileModel.find_by_keywords(params["keywords"]).map(&:attributes)}.to_json
+
+    keywords = params["keywords"]
+    all_tags = Tag.all.map(&:name)
+    tags = keywords.map{|kw| similarity(kw, all_tags)}
+    {files: UserFileModel.find_by_keywords(tags).map(&:attributes)}.to_json
   end
 
   post '/api/fileinfo', provides: :json do
